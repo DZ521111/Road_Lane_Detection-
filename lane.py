@@ -26,6 +26,7 @@ def canny_effect(image):
     canny = cv2.Canny(blur, 50, 150)
     return canny
 
+# region_of_interest function this function is use for masking
 def region_of_interest(image):
     height = image.shape[0]
     polygons = np.array([[(200, height), (1100, height), (550, 250)]])
@@ -34,6 +35,8 @@ def region_of_interest(image):
     masked_img = cv2.bitwise_and(image, mask)
     return masked_img
 
+
+# this function for displaying lines
 def display_line(image, lines):
     line_img = np.zeros_like(image)
     if (lines is not None):
@@ -42,6 +45,7 @@ def display_line(image, lines):
             cv2.line(line_img, (x1, y1), (x2, y2), (255, 0, 0), 10)
     return line_img
 
+# for finding a slops
 def average_slope_intercept(image, lines):
     left, right = [], []
     for line in lines:
