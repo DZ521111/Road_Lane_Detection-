@@ -19,6 +19,7 @@ def make_coordinates(image, line_parameters):
     x2 = int((y2 - intercept) / slope)
     return np.array([x1, y1, x2, y2])
 
+# canny effects on video
 def canny_effect(image):
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     blur = cv2.GaussianBlur(gray, (5, 5), 0)
